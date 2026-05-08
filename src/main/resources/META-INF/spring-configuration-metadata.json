@@ -1,0 +1,44 @@
+{
+  "properties": [
+    {
+      "name": "app.application.code",
+      "type": "java.lang.String",
+      "description": "Code of your application"
+    },
+    {
+      "name": "app.service.code",
+      "type": "java.lang.String",
+      "description": "Code of your service"
+    },
+    {
+      "name": "kpi.database",
+      "type": "java.lang.String",
+      "description": "Type of backend to store the kpi logs"
+    },
+    {
+      "name": "kpi.datasource.url",
+      "type": "java.lang.String",
+      "description": "Url of the backend storage"
+    },
+    {
+      "name": "kpi.datasource.username",
+      "type": "java.lang.String",
+      "description": "Username of the storage backend"
+    },
+    {
+      "name": "kpi.datasource.password",
+      "type": "java.lang.String",
+      "description": "Password of the storage backend"
+    },
+    {
+      "name": "kpi.datasource.topic",
+      "type": "java.lang.String",
+      "description": "Topic of the kafka queue (if kafka is used as the storage backend)"
+    },
+    {
+      "name": "kpi.grpc.enable",
+      "type": "java.lang.Boolean",
+      "description": "Whether you want to have logs for gRPC requests"
+    }
+  ]
+}

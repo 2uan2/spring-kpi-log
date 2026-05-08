@@ -17,7 +17,7 @@ kpi.grpc.enable=true #if you wanna kpi log for grpc request
 app.application.code=app_code #code of your application
 app.service.code=service_code #code of your service
 
-# Determine database to save log, for now, this library supports mongodb, mariadb, mysql, postgresql, elasticsearch
+# Determine database to save log, for now, this library supports mongodb, mariadb, mysql, postgresql, elasticsearch, kafka
 kpi.database=mongodb
 
 # With MongoDB
@@ -32,6 +32,17 @@ kpi.datasource.password=your_database_password
 kpi.datasource.url=your_database_uri #example: localhost:9200
 kpi.datasource.username=your_database_username
 kpi.datasource.password=your_database_password
+
+# With Kafka
+kpi.datasource.url=localhost:9092
+kpi.datasource.topic=event.apisix.kpi
+
+# Optional: Kafka producer tuning
+kpi.kafka.acks=all                    # all=wait for all replicas, 1=leader only, 0=no ack
+kpi.kafka.retries=2147483647          # Max retries for transient failures
+kpi.kafka.linger-ms=5                 # Wait 5ms to batch messages (throughput vs latency)
+kpi.kafka.batch-size=65536            # 64KB batch size
+kpi.kafka.compression-type=lz4        # lz4, gzip, snappy, zstd, none
 
 # Add ignored routes
 kpi.ignore-rest-routes[0].path=/api/authenticate

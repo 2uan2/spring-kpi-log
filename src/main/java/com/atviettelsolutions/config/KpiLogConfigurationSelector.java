@@ -2,6 +2,7 @@ package com.atviettelsolutions.config;
 
 import com.atviettelsolutions.config.elasticsearch.KpiLogElasticsearchConfiguration;
 import com.atviettelsolutions.config.jpa.KpiLogJpaConfiguration;
+import com.atviettelsolutions.config.kafka.KpiLogKafkaConfiguration;
 import com.atviettelsolutions.config.mongo.KpiLogMongoConfiguration;
 import org.springframework.context.EnvironmentAware;
 import org.springframework.context.annotation.ImportSelector;
@@ -28,6 +29,9 @@ public class KpiLogConfigurationSelector implements ImportSelector, EnvironmentA
         }
         String databaseType = environment.getProperty("kpi.database");
         switch (databaseType) {
+            case "kafka":
+                imports.add(KpiLogKafkaConfiguration.class.getName());
+                break;
             case "mongodb":
                 imports.add(KpiLogMongoConfiguration.class.getName());
                 break;
